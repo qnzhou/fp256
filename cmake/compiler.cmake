@@ -15,9 +15,9 @@ if(CMAKE_C_COMPILER_ID MATCHES ".*Clang")
     endif()
 
     # sanitizer
-    if(USE_ASAN)
+    if(FP256_USE_ASAN)
         set(SANITIZER_FLAG -fsanitize=address)
-    elseif(USE_MSAN AND NOT OS_MACOSX)
+    elseif(FP256_USE_MSAN AND NOT OS_MACOSX)
         set(SANITIZER_FLAG -fsanitize=memory)
     endif()
     set(EXTRA_C_FLAGS ${EXTRA_C_FLAGS} ${SANITIZER_FLAG})
@@ -34,7 +34,7 @@ elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     endif()
 
     # sanitizer
-    if(USE_ASAN)
+    if(FP256_USE_ASAN)
         set(SANITIZER_FLAG -fsanitize=address)
     endif()
     set(EXTRA_C_FLAGS ${EXTRA_C_FLAGS} ${SANITIZER_FLAG})

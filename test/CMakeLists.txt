@@ -20,10 +20,10 @@ set(fp256_static_lib fp256_static)
 
 # dependency
 # prefer shared library
-if(BUILD_SHARED)
+if(FP256_BUILD_SHARED)
     set(fp256_test_dep_lib ${fp256_shared_lib})
     add_definitions(-DBUILD_SHARED)
-elseif(BUILD_STATIC)
+elseif(FP256_BUILD_STATIC)
     set(fp256_test_dep_lib ${fp256_static_lib})
     add_definitions(-DBUILD_STATIC)
 else()

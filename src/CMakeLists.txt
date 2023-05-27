@@ -72,7 +72,7 @@ set(FP256_C_SRC
 include_directories(${FP256_DIR}/)
 include_directories(${FP256_INCLUDE_DIR}/)
 
-if(BUILD_STATIC)
+if(FP256_BUILD_STATIC)
     # build static object
     add_library(fp256_c_static_object OBJECT ${FP256_C_SRC})
     add_library(fp256_asm_static_object OBJECT ${LL_ASM_SRC})
@@ -95,7 +95,7 @@ if(BUILD_STATIC)
     INSTALL(TARGETS fp256_static ARCHIVE DESTINATION lib)
 endif()
 
-if(BUILD_SHARED)
+if(FP256_BUILD_SHARED)
     # build shared object
     add_library(fp256_c_shared_object OBJECT ${FP256_C_SRC})
     add_library(fp256_asm_shared_object OBJECT ${LL_ASM_SRC})
